@@ -12,6 +12,6 @@ shasum=$(grep Linux_x86_64 checksums.txt | awk '{print $1}')
 echo shasum=$shasum
 rm -f checksums.txt
 
-sed -i.bak -e "s/^pkgver=.*/pkgver=$version/" -e "s/^sha1sums=.*/sha1sums=('$shasum')/" PKGBUILD
+sed -i.bak -e "s/^pkgver=.*/pkgver=$version/" -e "s/^sha256sums=.*/sha256sums=('$shasum')/" PKGBUILD
 echo update PKGBUILD
 rm -f PKGBUILD.bak

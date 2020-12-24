@@ -1,4 +1,4 @@
-VERSION := $(shell cat VERSION)
+VERSION := $(shell grep 'require.*lazygit' go.mod | awk '{print $$3}' | tr -d 'v')
 
 .PHONY: all
 all: clone image-update version-up build commit
@@ -10,6 +10,10 @@ clone:
 .PHONY: image-update
 image-update:
 	docker pull archlinux:latest
+
+.PHONY: version
+version:
+	echo $(VERSION)
 
 .PHONY: version-up
 version-up:
