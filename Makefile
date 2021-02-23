@@ -1,4 +1,4 @@
-VERSION := $(shell grep 'require.*lazygit' go.mod | awk '{print $$3}' | tr -d 'v')
+VERSION := $(shell cat VERSION)
 
 .PHONY: all
 all: clone image-update version-up build commit
